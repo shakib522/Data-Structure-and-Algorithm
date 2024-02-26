@@ -2,12 +2,12 @@ class LinkList{
     var head:Node?=null
     class Node(val value:Int, var next: Node?)
 
-    fun prepend(head:Node?,item:Int):Node {
+    fun prepend(item:Int):Node {
         val newNode = Node(item, head)
         return newNode
     }
 
-    fun append(head:Node?,item:Int):Node{
+    fun append(item:Int):Node?{
         val newNode=Node(item,null)
         if(head==null){
             return newNode
@@ -20,7 +20,7 @@ class LinkList{
         return head
     }
 
-    fun printLinkedList(head:Node?){
+    fun printLinkedList(){
         var currentNode=head
         while (currentNode !=null){
             println("${currentNode.value} ")
@@ -29,7 +29,7 @@ class LinkList{
         println()
     }
 
-    fun count(head:Node?):Int{
+    fun count():Int{
         var cnt=0
         var currentNode=head
         while (currentNode!=null){
@@ -39,7 +39,7 @@ class LinkList{
         return cnt
     }
 
-    fun search(head:Node?,item:Int):Node?{
+    fun search(item:Int):Node?{
         var currentNode=head
         var ans:Node?=null
         while (currentNode!=null){
@@ -51,8 +51,8 @@ class LinkList{
         }
         return ans
     }
-    fun removeNode(head:Node?,item:Int):Node?{
-        val node=search(head,item)
+    fun removeNode(item:Int):Node?{
+        val node=search(item)
         val newHead: Node?
         if(node==head){
             newHead = node?.next
@@ -73,40 +73,46 @@ class LinkList{
         return head
     }
 
+    fun insert(nodeValueAfterNewNumberAdded:Int,itemToBeInserted:Int){
+        val node=search(nodeValueAfterNewNumberAdded)
+        val newNode=Node(itemToBeInserted,node?.next)
+        node?.next=newNode
+    }
+
 }
 
 fun main(){
     val list= LinkList()
-    //var head: LinkList.Node?
-    //var head:LinkList.Node
 
     val n1=LinkList.Node(10,null)
 
     list.head=n1
-    println("Number of node: ${list.count(list.head)}")
+    println("Number of node: ${list.count()}")
 
-    list.printLinkedList(list.head)
+    list.printLinkedList()
 
-    list.head=list.prepend(list.head,20)
-    list.printLinkedList(list.head)
+    list.head=list.prepend(20)
+    list.printLinkedList()
 
-    list.head=list.append(list.head,30)
-    list.printLinkedList(list.head)
-    println("Number of node: ${list.count(list.head)}")
-    val searchResult=list.search(list.head,5)
+    list.head=list.append(30)
+    list.printLinkedList()
+    println("Number of node: ${list.count()}")
+    val searchResult=list.search(5)
     if(searchResult==null){
         println("Item not found")
     }else{
         println("Item found in Linked List")
     }
-    list.head=list.removeNode(list.head,10)
-    list.printLinkedList(list.head)
-//    var n2=list.head
-//    list.head=list.removeNode(list.head,n2)
-//    list.printLinkedList(list.head)
-//    n2=list.head
-//    list.head=list.removeNode(list.head,n2)
-//    list.printLinkedList(list.head)
+    list.head=list.removeNode(10)
+    list.printLinkedList()
+
+    list.head=list.append(90)
+    list.insert(20,45)
+    list.insert(20,19)
+    list.printLinkedList()
+    println("last inserted")
+    list.insert(45,169)
+    list.printLinkedList()
 }
 
 
