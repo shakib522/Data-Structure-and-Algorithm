@@ -19,6 +19,17 @@ class LinkList{
         currentNode?.next=newNode
         return head
     }
+    fun reverseList(){
+        var currentNode = head
+        var prev : Node? = null
+        while (currentNode!=null){
+           val temp = currentNode.next
+            currentNode.next=prev
+            prev=currentNode
+            currentNode=temp
+        }
+        head=prev
+    }
 
     fun printLinkedList(){
         var currentNode=head
@@ -112,6 +123,10 @@ fun main(){
     list.printLinkedList()
     println("last inserted")
     list.insert(45,169)
+    list.printLinkedList()
+
+    println("reverse list")
+    list.reverseList()
     list.printLinkedList()
 }
 
