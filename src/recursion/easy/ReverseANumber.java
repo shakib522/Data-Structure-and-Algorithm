@@ -2,19 +2,16 @@ package recursion.easy;
 
 public class ReverseANumber {
     public static void main(String[] args) {
-        int num=35419;
-        int len=findLen(num);
-        int n=1;
-        for (int i=1;i<len;i++) {
-            n *= 10;
-        }
-        System.out.println( reversing(num,n));
+        int num=1049;
+//        int len=(int) Math.log10(num);
+//        int n=(int) Math.pow(10,len);
+        System.out.println( reversing(num,(int) Math.pow(10,(int) Math.log10(num))));
     }
-    static int reversing(int number,int whichMultiply){
+    static int reversing(int number,int multiply){
         if(number<10){
             return number;
         }
-        return ((number%10)*whichMultiply)+reversing(number/10, whichMultiply/10);
+        return ((number%10)*multiply)+reversing(number/10, multiply/10);
     }
     static int findLen(int number){
         if (number<10){
