@@ -18,6 +18,26 @@ fun preOrder(node:Node?) {
         preOrder(node.right)
     }
 }
+fun postOrder(node:Node?){
+    if (node?.left!=null){
+        postOrder(node.left)
+    }
+    if (node?.right!=null){
+        postOrder(node.right)
+    }
+    print("${node?.data} ")
+}
+
+fun inOrder(node:Node?){
+    if(node?.left!=null){
+        inOrder(node.left)
+    }
+    print("${node?.data} ")
+    if(node?.right!=null){
+        inOrder(node.right)
+    }
+}
+
 fun createTree():Node{
     val two=Node(2)
     val seven=Node(7)
@@ -41,8 +61,14 @@ fun createTree():Node{
     addRightChild(eight,four)
     return two
 }
+
 fun main() {
     val root= createTree()
     println(root.data)
     preOrder(root)
+    println()
+    postOrder(root)
+    println()
+    inOrder(root)
+    println()
 }
