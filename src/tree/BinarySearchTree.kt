@@ -41,6 +41,20 @@ class BstNode(val data:Int, var parent:BstNode?=null, var left:BstNode?=null, va
         }
         print("${root?.data} ")
     }
+    fun BFS(root: BstNode?) {
+        val queue= ArrayDeque<BstNode?>()
+        queue.addFirst(root)
+        while (queue.isNotEmpty()) {
+            val tmp = queue.removeFirst()
+            print("${tmp?.data} ")
+            if (tmp?.left != null) {
+                queue.addLast(tmp.left)
+            }
+            if (tmp?.right != null) {
+                queue.addLast(tmp.right)
+            }
+        }
+    }
     fun bstInsert(root:BstNode?,node:BstNode): BstNode {
         var parentNode:BstNode
         var currentNode:BstNode?
@@ -138,6 +152,9 @@ fun main() {
     println("In order: ")
     root?.inOrder(root)
     println()
+    println("BFS: ")
+    root?.BFS(root)
+    println()
     var node= bstSearch(root,7)
     if (node!=null){
         println("data found in binary search tree: ${node.data}")
@@ -177,6 +194,7 @@ fun main() {
 
     println("BST: ")
     root?.inOrder(root)
+
 }
 
 
