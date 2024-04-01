@@ -2,6 +2,7 @@ package sorting
 
 fun main(){
     val array= intArrayOf(5,4,3,2,1)
+    array.sort()//hybrid algorithm(use dual pivot quick sort,insertion sort,heap sort)
     quickSort(array,0,array.size-1)
     array.forEach{
         print("$it ")
