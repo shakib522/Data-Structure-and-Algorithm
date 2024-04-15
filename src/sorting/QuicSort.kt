@@ -27,7 +27,7 @@ fun quickSort(num:IntArray,low:Int,high:Int){
             e--
         }
         if(s<=e){
-//            num[s]=num[s].xor(num[e])
+//            num[s]=num[s].xor(num[e]) //we can not apply this because there is a situation where we need to swap with the own index.Then it will be zero if we perform arithmetic operation for swapping
 //            num[e]=num[s].xor(num[e])
 //            num[s]=num[s].xor(num[e])
 //            num[s]=num[s]+num[e]

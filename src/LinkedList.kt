@@ -94,7 +94,7 @@ class LinkList{
 
 fun main(){
     val list= LinkList()
-
+    val list2:LinkList.Node?=null
     val n1=LinkList.Node(10,null)
 
     list.head=n1
