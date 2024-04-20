@@ -7,16 +7,16 @@ fun main(){
     println(permutationCount("","abcd")) //the permutation count should be length! (4!)
 }
 
-fun permutation(p: String, up: String) {
-    if(up.isEmpty()){
-        println(p)
+fun permutation(processed: String, unprocessed: String) {
+    if(unprocessed.isEmpty()){
+        println(processed)
         return
     }
-    val ch=up[0]
-    for (i in 0..p.length){
-        val f=p.substring(0,i)
-        val s=p.substring(i,p.length)
-        permutation(f+ch+s,up.substring(1))
+    val ch=unprocessed[0]
+    for (i in 0..processed.length){
+        val f=processed.substring(0,i)
+        val s=processed.substring(i,processed.length)
+        permutation(f+ch+s,unprocessed.substring(1))
     }
 }
 fun permutationReturn(p: String, up: String) :MutableList<String>{
