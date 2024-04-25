@@ -3,7 +3,7 @@ package backtracking
 import kotlin.math.min
 
 fun main(){
-    val board= MutableList(5){ mutableListOf(false,false,false,false,false) }
+    val board= MutableList(4){ mutableListOf(false,false,false,false) }
     println( queens(board,0))
 }
 

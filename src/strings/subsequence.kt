@@ -12,6 +12,7 @@ fun main(){
     println(ans)
     println("Without duplicate")
     println(subSequenceIterativeWithoutDuplicate(intArrayOf(1,2,2)))
+    println(subSequenceIterativeWithoutDuplicate(intArrayOf(1,2,3)))
 }
 
 fun subSequence(p:String,up:String){
