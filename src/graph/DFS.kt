@@ -38,3 +38,9 @@ fun main() {
     println("--DFS--")
     println(dfs.dfsOfGraph(9,adj))
 }
+
+//space complexity: O(n) + O(n) + O(n) -> O(n) // First one is for dfs ans.Second one is for visited.
+// Third one is for recursion call.stack size in worst case is O(n)
+
+//time complexity : O(n) + O(2E)  | O(n) for dfs function and O(2E) for visited every neighbour in for loop.
+// So we can say total degree of graph is executed in the for loop what is equivalent to 2*E (E for edges)
