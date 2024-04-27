@@ -21,6 +21,16 @@ class DFS {
             }
         }
     }
+    fun dfsInAdjacencyMatrix(ans: ArrayList<Int>, vis: Array<Boolean>, node: Int, isConnected: Array<IntArray>):ArrayList<Int> {
+        vis[node] = true
+        ans.add(node+1)
+        for (j in isConnected[node].indices) {
+            if (isConnected[node][j] == 1 && !vis[j]) {
+                dfsInAdjacencyMatrix(ans, vis, j, isConnected)
+            }
+        }
+        return ans
+    }
 }
 
 fun main() {
@@ -37,6 +47,19 @@ fun main() {
     val dfs=DFS()
     println("--DFS--")
     println(dfs.dfsOfGraph(9,adj))
+
+
+    val ans= arrayListOf<Int>()
+    val vis = Array(3) { false }
+    val isConnected= Array(3){IntArray(3)}
+    isConnected[0]= intArrayOf(1,1,0)
+    isConnected[1]= intArrayOf(1,1,1)
+    isConnected[2]= intArrayOf(0,1,1)
+    println("--DFS using adjacency matrix ---")
+    println(dfs.dfsInAdjacencyMatrix(ans,vis,0,isConnected))
+
+
+
 }
 
 //space complexity: O(n) + O(n) + O(n) -> O(n) // First one is for dfs ans.Second one is for visited.
