@@ -3,7 +3,7 @@ package graph
 fun detect(src:Int,adj:ArrayList<ArrayList<Int>>,vis:Array<Boolean>):Boolean{
     vis[src]=true
     val q=ArrayDeque<Pair<Int,Int>>()
-    q.addFirst(Pair(src,-1))
+    q.addFirst(Pair(src,-1)) //src,parent
     while (q.isNotEmpty()){
         val node=q.first().first
         val parent=q.first().second
