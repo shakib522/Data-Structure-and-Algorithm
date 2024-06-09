@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 class DetectCycleUsingDFS{
     public static void main(String[] args) {
-
     }
     public static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
@@ -35,5 +34,8 @@ class DetectCycleUsingDFS{
         return false;
     }
 }
+
+// space complexity -> O(N) //recursion call stack (N) + visited array (N)
+// Time complexity -> O(N+2E) + O(N)
 
 
