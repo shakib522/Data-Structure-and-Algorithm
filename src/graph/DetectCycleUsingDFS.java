@@ -6,6 +6,11 @@ import java.util.Arrays;
 
 class DetectCycleUsingDFS{
     public static void main(String[] args) {
+        Product p=new Product();
+        Product p2=new Product();
+        Product p3=new Product();
+        System.out.println(p.v);
+
     }
     public static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
@@ -38,4 +43,23 @@ class DetectCycleUsingDFS{
 // space complexity -> O(N) //recursion call stack (N) + visited array (N)
 // Time complexity -> O(N+2E) + O(N)
 
-
+class Product{
+    public static int v=0;
+    int val=0;
+    void price(){
+        System.out.println(v);
+    }
+    static String type(){
+        System.out.println(v);
+        return "Product";
+    }
+    Product(){
+        v++;
+        System.out.println("v: "+v);
+    }
+}
+class Mobile extends Product{
+    void getName(){
+        System.out.println(type());
+    }
+}

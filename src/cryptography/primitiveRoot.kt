@@ -40,3 +40,15 @@ fun gcd(a:Int,b:Int):Int{
     }
     return gcd(b,a%b)
 }
+
+open class Content {
+    companion object{
+        var v=0
+    }
+    init {
+        v++
+    }
+}
+class Video: Content() {
+
+}
