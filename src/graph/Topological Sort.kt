@@ -22,7 +22,8 @@ fun topoSort(V:Int,adj:ArrayList<ArrayList<Int>>):List<Int> {
             topoDFS(i,st,vis,adj)
         }
     }
-    st.size
+    println(detectCycle(st,adj,V)) //stack popped in the function detect cycle.
+    // That's why it is not printing anything
     val ans= mutableListOf<Int>()
     while (st.isNotEmpty()){
         ans.add(st.pop())
