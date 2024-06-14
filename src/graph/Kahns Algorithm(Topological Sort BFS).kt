@@ -6,13 +6,12 @@ import java.util.Queue
 
 fun main(){
     val adj= arrayListOf<ArrayList<Int>>()
-    adj.add(arrayListOf())
-    adj.add(arrayListOf())
-    adj.add(arrayListOf(3))
     adj.add(arrayListOf(1))
-    adj.add(arrayListOf(0,1))
-    adj.add(arrayListOf(0,2))
-    println(topoSortUsingKahnAlgo(6,adj))
+    adj.add(arrayListOf(2))
+    adj.add(arrayListOf(4))
+    adj.add(arrayListOf(1))
+    adj.add(arrayListOf())
+    println(topoSortUsingKahnAlgo(5,adj))
 }
 
 fun topoSortUsingKahnAlgo(
@@ -45,3 +44,4 @@ fun topoSortUsingKahnAlgo(
 }
 
 //time complexity O(V+E)
+//for kahn's algorithm if there is any cycle, the toposorting has not n element.There must be element less than v if there is any cycle
