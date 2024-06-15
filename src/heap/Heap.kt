@@ -1,8 +1,14 @@
-
+package heap
 
 fun main() {
     val heap= intArrayOf(0,12,7,19,5,10,17,1,2,3)
     build_max_heap(heap,heap.size)
+    heap.forEach {
+        print("$it ")
+    }
+    println()
+    heap_sort(heap, heap.size)
+    println("after sorting: ")
     heap.forEach {
         print("$it ")
     }
@@ -16,8 +22,8 @@ fun build_max_heap(heap:IntArray,heap_size:Int){
 }
 
 fun maxHeapify(heap:IntArray,heapSize:Int,rootIndex:Int){
-    val l=left(rootIndex)
-    val r=right(rootIndex)
+    val l= left(rootIndex)
+    val r= right(rootIndex)
     var largest: Int
     if (l<=heapSize-1 && heap[l]>heap[rootIndex]){
         largest=l
