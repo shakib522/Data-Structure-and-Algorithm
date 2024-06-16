@@ -1,23 +1,33 @@
 package heap
 
+import PriorityQue
+
+
 fun main() {
     val heap= intArrayOf(0,12,7,19,5,10,17,1,2,3)
-    build_max_heap(heap,heap.size)
+    var heapSize=heap.size
+    build_max_heap(heap,heapSize)
     heap.forEach {
         print("$it ")
     }
     println()
+    println("Priority Queue: ")
+    val pq=PriorityQue(9)
+    println(pq.extractMax(heap))
+    println(pq.insertNode(heap,150))
     heap_sort(heap, heap.size)
     println("after sorting: ")
     heap.forEach {
         print("$it ")
     }
     println()
+
+
 }
 
 fun build_max_heap(heap:IntArray,heap_size:Int){
     for (i in (heap.size/2) downTo 1){
-        maxHeapify(heap,heap_size,i) //because of complete binary tree, we don't need to leaf node to do heapify
+        maxHeapify(heap,heap_size,i) //because of complete binary tree, we don't need to go to leaf node for heapify
     }
 }
 
