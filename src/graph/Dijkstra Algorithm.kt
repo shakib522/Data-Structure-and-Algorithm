@@ -18,6 +18,7 @@ fun main() {
 
 
     // Add edges (example graph)
+    //first one is node and second one is weight
     adj[0].add(ArrayList(mutableListOf(1, 2)))
     adj[0].add(ArrayList(mutableListOf(3, 1)))
     adj[1].add(ArrayList(mutableListOf(2, 3)))
@@ -39,6 +40,7 @@ fun main() {
 fun dijkstra(V: Int, adj: ArrayList<ArrayList<ArrayList<Int>>>, S: Int): IntArray {
     // Write your code here
     // weighted undirected (cyclic or acyclic) connected graph
+    //time complexity O( E log(V) )
     val comparator = Comparator<Pair<Int, Int>> { p1, p2 ->
         p1.first - p2.first
     }
