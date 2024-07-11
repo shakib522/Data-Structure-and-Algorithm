@@ -46,7 +46,7 @@ fun dijkstra(V: Int, adj: ArrayList<ArrayList<ArrayList<Int>>>, S: Int): IntArra
     }
     val pq = PriorityQueue(comparator)
     val dis: Array<Int> = Array(V) { 1000000000 } //10^8 or 1e9
-    pq.add(Pair(0, S))
+    pq.add(Pair(0, S)) //first -> weight, second -> node
     dis[S] = 0
     while (pq.isNotEmpty()) {
         val distance = pq.first().first
