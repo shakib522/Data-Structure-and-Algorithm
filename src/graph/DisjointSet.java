@@ -14,6 +14,7 @@ public class DisjointSet {
             size.add(1);
         }
     }
+    // O(log n ) --> O (4 * alpha ) it is nearly constant time
     public int findParent(int node){
         if (node==parent.get(node)){
             return node;
@@ -22,6 +23,7 @@ public class DisjointSet {
         parent.set(node,ultimateParent);
         return parent.get(node);
     }
+    // O(log n ) --> O (4 * alpha ) it is nearly constant time
     public void unionByRank(int u, int v){
         int ultimateParentOfU = findParent(u);
         int ultimateParentOfV = findParent(v);
@@ -38,7 +40,7 @@ public class DisjointSet {
             rank.set(ultimateParentOfU,rankU+1);
         }
     }
-
+    // O(log n ) --> O (4 * alpha ) it is nearly constant time
     public void unionBySize(int u, int v){
         int ultimateParentOfU = findParent(u);
         int ultimateParentOfV = findParent(v);
