@@ -1,5 +1,5 @@
-import heap.maxHeapify
-import heap.parent
+package heap
+
 import java.util.*
 import kotlin.Comparator
 
@@ -17,12 +17,12 @@ fun main() {
     println(pq.poll())
     println(pq.poll())
     //the all integer value are inserted using min heap.That's why we get value according to min heap when we print the priority queue
-    val comparator = Comparator<Pair<Int,Int>>{ p1,p2 ->
-        p1.second-p2.second
+    val comparator = Comparator<Pair<Int, Int>> { p1, p2 ->
+        p1.second - p2.second
     }
-    val pq2=PriorityQueue(comparator)
-    pq2.add(Pair(3,2))
-    pq2.add(Pair(4,1))
+    val pq2 = PriorityQueue(comparator)
+    pq2.add(Pair(3, 2))
+    pq2.add(Pair(4, 1))
     println(pq2.peek())
 }
 
@@ -50,5 +50,4 @@ class PriorityQue(var size: Int) {
         }
         return size
     }
-
 }
