@@ -6,7 +6,7 @@ fun main(){
     println(permutationCount("","abc")) // permutation count is 3!
     println(permutationCount("","abcd")) //the permutation count should be length! (4!)
 }
-
+//complexity O(n!)
 fun permutation(processed: String, unprocessed: String) {
     if(unprocessed.isEmpty()){
         println(processed)

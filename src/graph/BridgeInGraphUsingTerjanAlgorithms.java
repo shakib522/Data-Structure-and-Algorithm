@@ -41,7 +41,7 @@ public class BridgeInGraphUsingTerjanAlgorithms {
             if (!vis[adjacent]){
                 dfs(adjacent,node,vis,adj,timeOfInsert,low,bridges);
                 low[node]=Math.min(low[node],low[adjacent]);
-                if (low[adjacent]!=timeOfInsert[node]){
+                if (low[adjacent]>timeOfInsert[node]){
                     //it is a bridge
                     bridges.add(Arrays.asList(adjacent,node));
                 }
