@@ -71,3 +71,5 @@ public class BridgeInGraphUsingTerjanAlgorithms {
         return bridges;
     }
 }
+//space complexity -> O(v+2E) + O (3N) -> O (V+N)
+//time complexity -> O (V+2E)
