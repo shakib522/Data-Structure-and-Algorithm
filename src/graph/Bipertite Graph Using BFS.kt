@@ -18,6 +18,7 @@ fun check(node:Int,color:Array<Int>,adj:ArrayList<ArrayList<Int>>):Boolean{
                 }else{
                     color[it]=0
                 }
+                q.addLast(it)
             }else if(color[it]==color[tmp]){
                 return false
             }
