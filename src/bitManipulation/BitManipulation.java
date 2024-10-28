@@ -2,6 +2,7 @@ package bitManipulation;
 
 public class BitManipulation {
     public static void main(String[] args) {
+        System.out.println(13<<1);
         BitManipulation bit = new BitManipulation();
         System.out.println(bit.convertDecimalToBinary(11));
         System.out.println(bit.convertBinaryToDecimal("1011"));
