@@ -16,11 +16,9 @@ public class Triangle {
 
     }
     public int minimumTotal(List<List<Integer>> triangle) {
-        int[][] dp =new int[triangle.size()][triangle.get(triangle.size()-1).size()];
-        for (int[] a:dp){
-            Arrays.fill(a,-1);
-        }
-        return findMemoize(0,0,triangle,dp);
+        int n=triangle.size();
+        int m=triangle.get(n-1).size();
+        return findTabulationOptimize(n,m,triangle);
     }
 //    int find(int n,int m,List<List<Integer>> triangle){
 //        if(n==0){
@@ -76,5 +74,34 @@ public class Triangle {
         int down=triangle.get(i).get(j)+findMemoize(i+1,j,triangle,dp);
         int right=triangle.get(i).get(j)+findMemoize(i+1,j+1,triangle,dp);
         return dp[i][j] = Math.min(down,right);
+    }
+    int findTabulation(int n,int m,List<List<Integer>> triangle,int[][]dp) {
+        for (int j = 0; j <= m; j++) {
+            dp[n][j] = triangle.get(n).get(j);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i; j >= 0; j--) {
+                int down = triangle.get(i).get(j) + dp[i + 1][j];
+                int right = triangle.get(i).get(j) + dp[i + 1][j + 1];
+                dp[i][j] = Math.min(down, right);
+            }
+        }
+        return dp[0][0];
+    }
+    int findTabulationOptimize(int n,int m,List<List<Integer>> triangle) {
+        int[] front=new int[m];
+        for (int j = 0; j < m; j++) {
+           front[j] = triangle.get(n-1).get(j);
+        }
+        for (int i = n - 2; i >=0; i--) {
+            int[] cur=new int[m];
+            for (int j = i; j >= 0; j--) {
+                int down = triangle.get(i).get(j) + front[j];
+                int right = triangle.get(i).get(j) + front[j + 1];
+                cur[j] = Math.min(down, right);
+            }
+            front=cur;
+        }
+        return front[0];
     }
 }
